@@ -94,10 +94,18 @@ class ViewController: UIViewController {
             },
             completion: { finished in
                 if finished {
-                    print(self.quizManager.score)
+                    self.showNextQuiz()
                 }
             }
         )
+    }
+    
+    func showNextQuiz() {
+        self.quizManager.nextQuiz()
+        
+        self.quizCarad.transform = .identity
+        self.quizCarad.style = .initial
+        self.loadQuiz()
     }
 
 }
