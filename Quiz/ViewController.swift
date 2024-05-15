@@ -13,14 +13,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.addSubview(quizCarad)
-        quizCarad.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            quizCarad.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            quizCarad.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            quizCarad.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8, constant: 0)
-        ])
+        
+        self.setupLayout()
+        
+        let q = Quiz(text: "問題文", correctAnswer: false, imageName: "neko")
+        print(q.text)
+        print(q.correctAnswer)
+        print(q.imageName)
 
         self.quizCarad.style = QuizCard.QuizStyle.initial
         
@@ -68,3 +67,15 @@ class ViewController: UIViewController {
 
 }
 
+
+private extension ViewController {
+    func setupLayout() {
+        self.view.addSubview(quizCarad)
+        quizCarad.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            quizCarad.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            quizCarad.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            quizCarad.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8, constant: 0)
+        ])
+    }
+}
