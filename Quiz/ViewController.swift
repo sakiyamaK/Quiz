@@ -115,13 +115,11 @@ class ViewController: UIViewController {
     }
     
     func showAnswer() {
-        DispatchQueue.main.async {
-            if let resultViewController = UIStoryboard(name: "Result", bundle: Bundle.main).instantiateInitialViewController() as? ResultViewController {
+        if let resultViewController = UIStoryboard(name: "Result", bundle: Bundle.main).instantiateInitialViewController() as? ResultViewController {
 
-                resultViewController.score = self.quizManager.score
-                
-                self.show(resultViewController, sender: nil)
-            }
+            resultViewController.score = self.quizManager.score
+            
+            self.navigationController?.pushViewController(resultViewController, animated: true)
         }
     }
 }
