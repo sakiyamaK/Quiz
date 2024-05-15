@@ -102,12 +102,35 @@ class ViewController: UIViewController {
     
     func showNextQuiz() {
         self.quizManager.nextQuiz()
-        
-        self.quizCarad.transform = .identity
-        self.quizCarad.style = .initial
-        self.loadQuiz()
+                
+        switch quizManager.status {
+        case .inAnswer:
+            self.quizCarad.transform = .identity
+            self.quizCarad.style = .initial
+            self.loadQuiz()
+        case .done:
+            self.quizCarad.isHidden = true
+            
+            self.showAnswer()
+//            self.performSegue(withIdentifier: "goToResult", sender: nil)
+        }
     }
-
+    
+    func showAnswer() {
+        if let resultViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ResultViewController") as? ResultViewController {
+            resultViewController.label.text = String(quizManager.score)
+            
+            self.show(resultViewController, sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let resultViewController = segue.destination as? ResultViewController {
+//            resultViewController.label.text = String(quizManager.score)
+            // もしくはこうも書ける
+//            resultViewController.label.text = quizManager.score.description
+        }
+    }
 }
 
 

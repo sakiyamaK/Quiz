@@ -21,9 +21,9 @@ class QuizManager {
     init() {
         quizzes = [
             Quiz(text: "人間を超でっかい猫だと思っている", correctAnswer: true, imageName: "cat"),
-            Quiz(text: "犬は食べ物のおいしさを味よりも匂いで判断している？", correctAnswer: true, imageName: "dog"),
-            Quiz(text: "トラのしましま模様は皮膚まで繋がっていない？", correctAnswer: false, imageName: "tiger"),
-            Quiz(text: "パンダの好物は笹である", correctAnswer: false, imageName: "panda")
+//            Quiz(text: "犬は食べ物のおいしさを味よりも匂いで判断している？", correctAnswer: true, imageName: "dog"),
+//            Quiz(text: "トラのしましま模様は皮膚まで繋がっていない？", correctAnswer: false, imageName: "tiger"),
+//            Quiz(text: "パンダの好物は笹である", correctAnswer: false, imageName: "panda")
         ]
         
         currentIndex = 0
