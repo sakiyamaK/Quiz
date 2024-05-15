@@ -10,29 +10,25 @@ import UIKit
 class ViewController: UIViewController {
 
     private var quizCarad: QuizCard = UINib(nibName: "QuizCard", bundle: nil).instantiate(withOwner: nil).first as! QuizCard
-    
+
+    let quizManager = QuizManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupLayout()
         
-        // インスタンスを作成
-        let quizManager = QuizManager()
-        //最初のクイズを確認
-        print(quizManager.currentQuiz.text)
-        // クイズに回答する
-        quizManager.answerQuiz(answer: true)
-        // スコアを確認
-        print(quizManager.score)
-        //次のクイズを取得
-        quizManager.nextQuiz()
-        //次のクイズの問題文を確認
-        print(quizManager.currentQuiz.text)
-
         self.quizCarad.style = QuizCard.QuizStyle.initial
-        
+
+        loadQuiz()
+
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(draqQuiz(_:)))
         self.quizCarad.addGestureRecognizer(panGesture)
+    }
+    
+    func loadQuiz() {
+        self.quizCarad.label.text = quizManager.currentQuiz.text
+        self.quizCarad.imageView.image = UIImage(named: quizManager.currentQuiz.imageName)
     }
     
     @objc func draqQuiz(_ sender: UIPanGestureRecognizer) {

@@ -9,8 +9,8 @@ import UIKit
 
 class QuizCard: UIView {
 
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var label: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
     
     enum QuizStyle {
         case initial, right, wrong
