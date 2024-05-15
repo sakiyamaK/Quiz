@@ -36,14 +36,11 @@ class ViewController: UIViewController {
         case .began, .changed:
             transformQuizcard(gesture: sender)
         case .ended:
-            print("おわり")
-            self.quizCarad.transform = .identity
-            self.quizCarad.style = .initial
+            answer()
         default:
             print("それ以外")
         }
     }
-
     
     func transformQuizcard(gesture: UIPanGestureRecognizer) {
         let point = gesture.translation(in: quizCarad)
@@ -67,6 +64,40 @@ class ViewController: UIViewController {
         } else {
             self.quizCarad.style = .wrong
         }
+    }
+    
+    func answer() {
+        
+        var translationTransform: CGAffineTransform
+        //画面の横幅を取得
+        let screenWidth = UIScreen.main.bounds.width
+        //画面の高さを取得して0.2倍
+        let y = UIScreen.main.bounds.height * 0.2
+        
+        if self.quizCarad.style == .right {
+            // 右へ移動させるアフィン変換
+            translationTransform = CGAffineTransform(translationX: screenWidth, y: y)
+            self.quizManager.answerQuiz(answer: true)
+        } else {
+            // 左へ移動させるアフィン変換
+            translationTransform = CGAffineTransform(translationX: -screenWidth, y: y)
+            self.quizManager.answerQuiz(answer: false)
+        }
+        
+        // 教科書 P229
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0.1,
+            options: [.curveLinear],
+            animations: {
+                self.quizCarad.transform = translationTransform
+            },
+            completion: { finished in
+                if finished {
+                    print(self.quizManager.score)
+                }
+            }
+        )
     }
 
 }
