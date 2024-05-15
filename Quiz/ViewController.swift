@@ -16,10 +16,18 @@ class ViewController: UIViewController {
         
         self.setupLayout()
         
-        let q = Quiz(text: "問題文", correctAnswer: false, imageName: "neko")
-        print(q.text)
-        print(q.correctAnswer)
-        print(q.imageName)
+        // インスタンスを作成
+        let quizManager = QuizManager()
+        //最初のクイズを確認
+        print(quizManager.currentQuiz.text)
+        // クイズに回答する
+        quizManager.answerQuiz(answer: true)
+        // スコアを確認
+        print(quizManager.score)
+        //次のクイズを取得
+        quizManager.nextQuiz()
+        //次のクイズの問題文を確認
+        print(quizManager.currentQuiz.text)
 
         self.quizCarad.style = QuizCard.QuizStyle.initial
         
