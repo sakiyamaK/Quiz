@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(draqQuiz(_:)))
         self.quizCarad.addGestureRecognizer(panGesture)
     }
-    
+        
     func loadQuiz() {
         self.quizCarad.label.text = quizManager.currentQuiz.text
         self.quizCarad.imageView.image = UIImage(named: quizManager.currentQuiz.imageName)

@@ -33,4 +33,10 @@ class ResultViewController: UIViewController {
         
         textView.text = text
     }
+    
+    
+    @IBAction func tapButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
