@@ -18,78 +18,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <connections>
-                        <segue destination="Oez-vV-zmy" kind="show" identifier="goToResult" id="8oG-e9-EXM"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24" y="5"/>
         </scene>
-        <!--Result View Controller-->
-        <scene sceneID="LqH-vj-nxJ">
-            <objects>
-                <viewController storyboardIdentifier="ResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Oez-vV-zmy" customClass="ResultViewController" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JVr-XM-bGE">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-0y-LMC">
-                                <rect key="frame" x="12" y="12" width="369" height="818"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZA-sw-QBu">
-                                        <rect key="frame" x="0.0" y="0.0" width="369" height="163.66666666666666"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-Rr-797">
-                                        <rect key="frame" x="0.0" y="163.66666666666669" width="369" height="163.66666666666669"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lf-We-6RD">
-                                        <rect key="frame" x="0.0" y="327.33333333333331" width="369" height="163.33333333333331"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bOP-jN-mA6">
-                                        <rect key="frame" x="0.0" y="490.66666666666669" width="369" height="163.66666666666669"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdM-2z-bgB">
-                                        <rect key="frame" x="0.0" y="654.33333333333337" width="369" height="163.66666666666663"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Ock-V3-aQI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="GMc-0y-LMC" firstAttribute="leading" secondItem="Ock-V3-aQI" secondAttribute="leading" constant="12" id="ByH-Kp-6BA"/>
-                            <constraint firstItem="GMc-0y-LMC" firstAttribute="top" secondItem="Ock-V3-aQI" secondAttribute="top" constant="12" id="Ff8-KM-O3r"/>
-                            <constraint firstItem="Ock-V3-aQI" firstAttribute="trailing" secondItem="GMc-0y-LMC" secondAttribute="trailing" constant="12" id="YoZ-b6-MmK"/>
-                            <constraint firstItem="Ock-V3-aQI" firstAttribute="bottom" secondItem="GMc-0y-LMC" secondAttribute="bottom" constant="12" id="lQR-bW-Sko"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="pd7-na-Gbx"/>
-                    <connections>
-                        <outlet property="label" destination="JbC-Rr-797" id="YaH-pl-OeZ"/>
-                        <outlet property="textView" destination="bOP-jN-mA6" id="aj6-Es-voi"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zez-Up-nCs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1042" y="5"/>
-        </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

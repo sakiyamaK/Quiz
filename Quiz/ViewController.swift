@@ -109,26 +109,22 @@ class ViewController: UIViewController {
             self.quizCarad.style = .initial
             self.loadQuiz()
         case .done:
-            self.quizCarad.isHidden = true
-            
+            self.quizCarad.isHidden = true            
             self.showAnswer()
-//            self.performSegue(withIdentifier: "goToResult", sender: nil)
         }
     }
     
     func showAnswer() {
-        if let resultViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ResultViewController") as? ResultViewController {
-            resultViewController.label.text = String(quizManager.score)
-            
-            self.show(resultViewController, sender: nil)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let resultViewController = segue.destination as? ResultViewController {
-//            resultViewController.label.text = String(quizManager.score)
-            // もしくはこうも書ける
-//            resultViewController.label.text = quizManager.score.description
+        DispatchQueue.main.async {
+            if let resultViewController = UIStoryboard(name: "Result", bundle: Bundle.main).instantiateInitialViewController() as? ResultViewController {
+                // なぜか1行処理を入れないとIBOutletで繋いだパラメータを呼び出せない
+                // Xcodeのバグかも？
+                resultViewController.view.backgroundColor = .white
+                
+                resultViewController.label.text = String(self.quizManager.score)
+                
+                self.show(resultViewController, sender: nil)
+            }
         }
     }
 }

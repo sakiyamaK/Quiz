@@ -9,8 +9,7 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var label: UILabel!        
     @IBOutlet weak var textView: UITextView!
-    
     
 }
