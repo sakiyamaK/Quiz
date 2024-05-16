@@ -110,17 +110,18 @@ class ViewController: UIViewController {
             self.loadQuiz()
         case .done:
             self.quizCarad.isHidden = true            
-            self.showAnswer()
+            self.showResult()
         }
     }
     
-    func showAnswer() {
-        if let resultViewController = UIStoryboard(name: "Result", bundle: Bundle.main).instantiateInitialViewController() as? ResultViewController {
-
-            resultViewController.score = self.quizManager.score
-            
-            self.navigationController?.pushViewController(resultViewController, animated: true)
-        }
+    func showResult() {
+        let storyboard = UIStoryboard(name: "Result", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()
+        let resultViewController = viewController as! ResultViewController
+        
+        resultViewController.score = self.quizManager.score
+        
+        self.navigationController?.pushViewController(resultViewController, animated: true)
     }
 }
 
